@@ -19,7 +19,7 @@ public class TourDAO extends BaseDAO {
             preparedStatement.setInt(2, tour.getYear());
             preparedStatement.executeUpdate();
             return true;
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return false;
@@ -33,7 +33,7 @@ public class TourDAO extends BaseDAO {
             while (resultSet.next()) {
                 tours.add(new Tour(resultSet.getString("name"), resultSet.getInt("year")));
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return tours;
