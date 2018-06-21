@@ -7,6 +7,6 @@ import java.sql.SQLException;
 public abstract class BaseDAO {
 
     protected Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/", "root", "Database12#");
+        return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", "root", "Database12#");
     }
 }
