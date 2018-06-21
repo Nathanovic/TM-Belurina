@@ -7,6 +7,6 @@ import java.sql.SQLException;
 public abstract class BaseDAO {
 
     protected Connection getConnection() throws SQLException, ClassNotFoundException {
-        return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", "root", "N8epTttrbD");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "Database12#");
     }
 }
