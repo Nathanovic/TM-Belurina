@@ -24,6 +24,7 @@ public class Main {
             tours = tourDAO.getAllTours();
         }
         List<Tour> finalTours = tours;
+        port(8082);
         Map<String, Route> routeMap = new MapBuilderUtil<String, Route>()
                 .put("/hello", (request, response) -> "Hello world!")
                 .put("/tours", (request, response) -> JsonUtil.toJson(finalTours))
