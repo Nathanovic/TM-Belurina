@@ -1,0 +1,23 @@
+{
+  "name": "tm-belurina",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nuxt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnityGitGit/TM-Belurina.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UnityGitGit/TM-Belurina/issues"
+  },
+  "homepage": "https://github.com/UnityGitGit/TM-Belurina#readme",
+  "dependencies": {
+    "nuxt": "^1.4.1"
+  }
+}
