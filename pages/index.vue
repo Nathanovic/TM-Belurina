@@ -1,22 +1,10 @@
 
 <template>
   <div class="container">
-    <h1>User Agent</h1>
-    <p>{{ userAgent }}</p>
-    <p><nuxt-link to="/posts">List exercise</nuxt-link></p>
+    <p><nuxt-link to="/runners">Runners</nuxt-link></p>
+    <p><nuxt-link to="/teams">Teams</nuxt-link></p>
   </div>
 </template>
-
-<script>
-export default {
-  asyncData: ({ req }) => ({
-    userAgent: (req ? req.headers['user-agent'] : (typeof navigator !== 'undefined' ? navigator.userAgent : 'No user agent (generated)'))
-  }),
-  head: {
-    title: 'Tour Manager'
-  }
-}
-</script>
 
 <style scoped>
 .container {

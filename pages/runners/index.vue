@@ -1,10 +1,9 @@
-
 <template>
   <div class="container">
-    <h1>Blog</h1>
+    <h1>Runners List:</h1>
     <ul>
-      <li v-for="(post, index) in posts" :key="index">
-        <nuxt-link :to="{ name: 'posts-id', params: { id: post.id } }">{{ post.title }}</nuxt-link>
+      <li v-for="(runner, index) in runners" :key="index">
+        <p>{{runner.firstName}}</p>
       </li>
     </ul>
     <p><nuxt-link to="/">Back to home page</nuxt-link></p>
@@ -15,16 +14,14 @@
 import axios from 'axios'
 
 export default {
-  asyncData({ req, params }) {
+    layout: 'default',
+    asyncData({ req, params }) {
     // We can return a Promise instead of calling the callback
-    return axios.get('https://jsonplaceholder.typicode.com/posts')
+    return axios.get('http://185.95.31.64:4567/runners')
       .then((res) => {
-        return { posts: res.data.slice(0, 5) }
+        return { runners: res.data }
       })
-  },
-  head: {
-    title: 'List of posts'
-  }
+    }
 }
 </script>
 
