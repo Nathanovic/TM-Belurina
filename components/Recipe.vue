@@ -3,7 +3,6 @@
         <div class="thumbnaill" v-bind:style="{backgroundImage: 'url(' + thumbnail + ')'}"></div>
         <h3>{{ title }}</h3>
         <p>{{ previewText }}</p>
-        <p>{{ thumbnail }}</p>
     </article>
 </template>
 
