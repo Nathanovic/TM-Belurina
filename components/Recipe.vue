@@ -1,14 +1,16 @@
 <template>
-    <article class="recipe">
-        <div class="thumbnaill" v-bind:style="{backgroundImage: 'url(' + thumbnail + ')'}"></div>
-        <h3>{{ title }}</h3>
-        <p>{{ previewText }}</p>
-    </article>
+    <nuxt-link :to="'/recipes/' + id">
+        <article class="recipe">
+            <div class="thumbnaill" v-bind:style="{backgroundImage: 'url(' + thumbnail + ')'}"></div>
+            <h3>{{ title }}</h3>
+            <p>{{ previewText }}</p>
+        </article>
+    </nuxt-link>
 </template>
 
 <script>
 export default {
-    props: ['thumbnail', 'title', 'previewText']
+    props: ['thumbnail', 'title', 'previewText', 'id']
 }
 </script>
 

@@ -1,7 +1,5 @@
 <template>
 <section class="differentSection">
-    <div class='different'>
-        <nuxt/>
-    </div>
+    <nuxt/>
 </section>
 </template>
