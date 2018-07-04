@@ -4,11 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "HOST=0.0.0.0 nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "cross-env HOST=0.0.0.0 PORT=3333 nuxt"
   },
   "repository": {
     "type": "git",
@@ -23,5 +19,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "nuxt": "^1.4.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0"
   }
 }
