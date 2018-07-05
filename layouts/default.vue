@@ -1,11 +1,7 @@
 <template>
     <div>
         <div id="wrapper">
-            <div id="header">
-                <h1>
-                    Tour Manager
-                </h1>
-            </div>
+            <Header/>
             <div id="body">
                 <nuxt/>
             </div>
@@ -15,3 +11,14 @@
         </div>
     </div>
 </template>
+
+<script>
+import Header from "@/components/Header"
+export default {
+    components: {
+        Header
+    }
+}
+</script>
+
+

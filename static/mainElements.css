@@ -10,9 +10,9 @@ html {
 	--color-mainText: #540d0d;
 	--color-headerText: #fcfcf9;
 	
-	--value-headerHeight: 5rem;
+	--value-headerHeight: 10rem;
 	--value-headerMargin: 2rem;
-	--value-footerOffset: 7rem; /* headerHeight + headerMargin */
+	--value-footerOffset: 12rem; /* headerHeight + headerMargin */
 	--value-sideMargin: 7rem;
 	
 	--value-corner: 1rem;
@@ -44,15 +44,6 @@ body {		/*container*/
 	padding-right: var(--value-sideMargin);
 	padding-left: var(--value-sideMargin);
 	padding-bottom: 0;
-}
-#header {	/*content div*/
-	height: var(--value-headerHeight);
-	
-	text-align: center;
-	line-height: var(--value-headerHeight);
-	
-	background-color: var(--main-c3);
-	color: var(--color-headerText);
 }
 #body {		/*content div*/
 	margin: var(--value-headerMargin) 0;
