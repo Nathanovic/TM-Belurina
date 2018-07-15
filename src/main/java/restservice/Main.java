@@ -24,6 +24,7 @@ public class Main {
         TestApplication app = new TestApplicationBuilder()
                 .withPassword("Testing@12")
                 .build();
+
         TourManager tourManager = app.getOrThrow(TourManager.class);
         RunnerManager runnerManager = app.getOrThrow(RunnerManager.class);
         TeamManager teamManager = app.getOrThrow(TeamManager.class);
