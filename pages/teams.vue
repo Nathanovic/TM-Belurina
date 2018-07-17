@@ -6,7 +6,7 @@
                 <nuxt-link :to="{ name: 'teamrunners', params: { team: team } }">{{ team.name }}</nuxt-link>
             </li>
         </ul>
-        <p><nuxt-link to="/">Back to home page</nuxt-link></p>
+        <nuxt-link to="/"><p>Back to home page</p></nuxt-link>
     </div>
 </template>
 

@@ -1,7 +1,8 @@
-
 <template>
-  <div class="container">
-    <p><nuxt-link to="/runners">Runners</nuxt-link></p>
-    <p><nuxt-link to="/teams">Teams</nuxt-link></p>
-  </div>
+    
 </template>
+
+<!-- 
+THIS PAGE IS EMPTY BECAUSE IT CONTAINS THE "default.vue" PAGE
+IT IS NEEDED BECAUSE IT PREVENTS A "404 error" 
+-->

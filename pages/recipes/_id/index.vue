@@ -11,6 +11,7 @@
 
 <script>
 export default {
+    layout: 'default',
     asyncData(context) {
         return new Promise((resolve, reject) => {
             setTimeout(() => {

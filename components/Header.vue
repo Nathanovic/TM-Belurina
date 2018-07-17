@@ -8,12 +8,13 @@
                 <li><nuxt-link to="/">Starting Page</nuxt-link></li>
                 <li><nuxt-link to="/recipes">Recipes</nuxt-link></li>
                 <li><nuxt-link to="/runners">Runners</nuxt-link></li>
+                <li><nuxt-link to="/teams">Teams</nuxt-link></li>
             </ul>
         </nav>
     </div>
 </template>
 
-<style>
+<style scoped>
 #header {	/*content div*/
 	height: var(--value-headerHeight);
 	
@@ -40,8 +41,7 @@ li {
     margin: 0px 10px;
 }
 
-a {
-    text-decoration: none;
+a{
     color: white;
 }
 </style>

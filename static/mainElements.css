@@ -6,7 +6,7 @@ html {
 :root{
 	--main-c1: #eaeaea;
 	--main-c2: #fcfced;
-	--main-c3: #ffa3a3;
+	--main-c3: #e06534;
 	--color-mainText: #540d0d;
 	--color-headerText: #fcfcf9;
 	
@@ -38,7 +38,6 @@ body {		/*container*/
 }
 
 #wrapper{
-    height: 100%;
 	min-height: 100%;
 	padding-top: var(--value-headerMargin);
 	padding-right: var(--value-sideMargin);
@@ -50,7 +49,7 @@ body {		/*container*/
 	background-color: var(--main-c2);
 	padding: var(--value-textPadding);
 	
-	height: 55rem;
+	min-height: 55rem;
 }
 
 #footer {	/*content div*/
@@ -73,4 +72,8 @@ body {		/*container*/
 #footer p{
 	margin: 0;
 	font-weight: bold;
+}
+
+a {
+	text-decoration: none;
 }
