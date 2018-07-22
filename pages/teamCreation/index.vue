@@ -15,7 +15,7 @@ Functionalities:
             </li>
         </div>
         <div class="runners">
-            <h2>Budget: {{ $store.state.budget }}</h2>   
+            <h2>Budget: {{ /*$store.state.budget*/budget }}</h2>   
             <RunnerTable
                 :runners = teamRunners
                 :canEdit = true
@@ -61,6 +61,12 @@ export default {
         return { runners: res.data }
       })
     },
+    data () {
+        return {
+            teamRunners: [],
+            budget: 1000
+        }
+    },
     methods: {
         addRunner(runnerId){//array id + 1
             var id = JSON.stringify(runnerId);
@@ -104,9 +110,8 @@ export default {
         .then((res) => {
             //store.commit('init', GetRunnersValue(res.data))//???
 
-            var budget = 1000;
             res.data.forEach(function(item, index){
-                budget += item.price;
+                //budget += item.price;
             });
         })
     }
