@@ -4,6 +4,7 @@
             <Header/>
             <div id="body">
                 <nuxt/>
+                <h2>running on {{ name[2] }}</h2>
             </div>
         </div>
         <div id="footer">
@@ -17,8 +18,18 @@ import Header from "@/components/Header"
 export default {
     components: {
         Header
+    },
+    data (process) {
+        return { 
+            name: [
+                'client',
+                'server',
+                'pietje'
+            ]
+        }
     }
 }
 </script>
+
 
 

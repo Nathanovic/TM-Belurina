@@ -5,10 +5,11 @@
         </h1>
         <nav>
             <ul>
-                <li><nuxt-link to="/">Starting Page</nuxt-link></li>
+                <li><nuxt-link to="/">Main menu</nuxt-link></li>
                 <li><nuxt-link to="/recipes">Recipes</nuxt-link></li>
                 <li><nuxt-link to="/runners">Runners</nuxt-link></li>
                 <li><nuxt-link to="/teams">Teams</nuxt-link></li>
+                <li><nuxt-link to="/teamCreation">My team</nuxt-link></li>
             </ul>
         </nav>
     </div>
