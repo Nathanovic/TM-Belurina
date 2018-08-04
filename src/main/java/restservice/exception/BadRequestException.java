@@ -1,4 +1,4 @@
-package restservice.exception.badrequest;
+package restservice.exception;
 
 public class BadRequestException extends Exception {
     public BadRequestException(){

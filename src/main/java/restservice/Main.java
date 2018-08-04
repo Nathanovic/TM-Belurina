@@ -12,7 +12,8 @@ import restservice.controller.RunnerController;
 import restservice.controller.TeamController;
 import restservice.controller.TourController;
 import restservice.controller.UserController;
-import restservice.exception.badrequest.BadRequestException;
+import restservice.exception.BadRequestException;
+import restservice.exception.ExceptionController;
 
 import static spark.Spark.before;
 import static spark.Spark.exception;
@@ -50,14 +51,11 @@ public class Main {
         });
         before(((request, response) -> response.header("Access-Control-Allow-Origin", "*")));
 
+        ExceptionController exceptionController = new ExceptionController();
         TourController tourController = new TourController(tourManager,teamManager, "/tours");
         TeamController teamController = new TeamController(teamManager, runnerManager, "/teams");
         RunnerController runnerController = new RunnerController(runnerManager, "/runners");
         UserController userController = new UserController(userManager, userTeamManager, runnerManager, "/users");
-
-        exception(BadRequestException.class, (exception, request, response) -> {
-            response.status(HttpStatus.BAD_REQUEST_400);
-        });
     }
 
 }

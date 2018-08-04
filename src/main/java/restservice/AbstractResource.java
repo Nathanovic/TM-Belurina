@@ -9,7 +9,7 @@ import spark.Spark;
 
 import java.util.stream.Collectors;
 
-import static restservice.util.JsonUtil.json;
+import static restservice.util.json.JsonUtil.json;
 import static spark.Spark.path;
 
 public abstract class AbstractResource<M extends Manager> {

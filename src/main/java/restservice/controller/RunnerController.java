@@ -2,14 +2,13 @@ package restservice.controller;
 
 import persistence.db.test.runner.Runner;
 import persistence.db.test.runner.RunnerManager;
-import persistence.db.test.team.Team;
 import restservice.util.RequestUtil;
 import spark.Request;
 import spark.Response;
 
 import java.util.stream.Collectors;
 
-import static restservice.util.JsonUtil.json;
+import static restservice.util.json.JsonUtil.json;
 import static spark.Spark.get;
 import static spark.Spark.path;
 

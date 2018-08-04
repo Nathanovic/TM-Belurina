@@ -11,5 +11,5 @@ import persistence.db.test.user.generated.GeneratedUserImpl;
  * @author company
  */
 public final class UserImpl 
-extends GeneratedUserImpl 
+extends GeneratedUserImpl
 implements User {}

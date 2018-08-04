@@ -1,18 +1,16 @@
 package restservice.controller;
 
-import org.eclipse.jetty.http.HttpStatus;
 import persistence.db.test.team.Team;
 import persistence.db.test.team.TeamManager;
 import persistence.db.test.tour.Tour;
 import persistence.db.test.tour.TourManager;
-import restservice.exception.badrequest.BadRequestException;
 import restservice.util.RequestUtil;
 import spark.Request;
 import spark.Response;
 
 import java.util.stream.Collectors;
 
-import static restservice.util.JsonUtil.json;
+import static restservice.util.json.JsonUtil.json;
 import static spark.Spark.path;
 import static spark.Spark.get;
 
