@@ -11,15 +11,16 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    import rs from '~/lib/restservice';
 
     export default {
         layout: 'default',
-        async asyncData({ req, params }) {
-            return axios.get('http://185.95.31.64:4567/teams')
-                .then((res) => {
-                    return { teams: res.data }
-                })
+        async asyncData ({ params }) {
+            return rs.teams().then((data) => {
+                return {
+                    teams: data
+                }
+            });
         }
     }
 </script>
