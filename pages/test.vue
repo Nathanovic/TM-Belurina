@@ -34,13 +34,13 @@ export default {
         aFunction(){
             alert("aFunction has been called!");
         }
-    },
+    }/*,
     fetch ({ store, params }) {
         return axios.get('http://185.95.31.64:4567/runners')
         .then((res) => {
             store.commit('init', res.data)//???
         })
-    }
+    }*/
 }
 </script>
 

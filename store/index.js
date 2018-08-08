@@ -13,11 +13,11 @@ const createStore = () => {
                 
                 teamRunners.foreach(function(item, index){
                     state.budget -= item.price;
-                    teamRunners.add(item);
+                    state.teamRunners.add(item);
                 });
             },
-            increment (state, newValue){ 
-                state.budget += newValue;
+            addRunner (state, runner){ 
+                state.teamRunners.add(runner);
             }
         }
     })

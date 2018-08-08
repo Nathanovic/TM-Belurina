@@ -17,7 +17,7 @@ Functionalities:
         <div class="runners">
             <h2>Budget: {{ $store.state.budget }}</h2>   
             <RunnerTable
-                :runners = teamRunners
+                :runners = $store.state.teamRunners
                 :canEdit = true
                 :removeRunnerFunc = removeRunner
             />
@@ -78,7 +78,7 @@ export default {
             runner.bought = true;
 
             axios.put('http://185.95.31.64:4567/users/'+ userId +'/team/' + id);
-            $context.store.commit('increment', runner.price);
+            this.$store.teamRunners.add(runner);
         },
         removeRunner(runnerId){//database ID
             var id = JSON.stringify(runnerId);
@@ -95,7 +95,7 @@ export default {
             runner.bought = false;
 
             axios.delete('http://185.95.31.64:4567/users/'+ userId +'/team/' + id);
-            $context.store.commit('increment', -runner.price);
+            this.$store.teamRunners.remove(runner);
         },
         getRunner(id){//id = (stringified) database ID
             this.runners.forEach(function(item, index){
@@ -106,11 +106,11 @@ export default {
             });
         }
     },
-    async fetch({ store, params }) {
-        let { data } = axios.get('http://185.95.31.64:4567/runners')
-        .then((data) => {
-            console.log('hello');
-            store.commit('init', startBudget, data.data)    
+    fetch({ store, params }) {
+        let { runners } = axios.get('http://185.95.31.64:4567/' + userId +'/team')
+        .then((runners) => {
+            console.log('hello runners: ' + runners.length);
+            store.commit('init', startBudget, runners.data)    
         })
     }
 }
