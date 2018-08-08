@@ -15,7 +15,7 @@ Functionalities:
             </li>
         </div>
         <div class="runners">
-            <h2>Budget: {{ /*$store.state.budget*/budget }}</h2>   
+            <h2>Budget: {{ $store.state.budget }}</h2>   
             <RunnerTable
                 :runners = teamRunners
                 :canEdit = true
@@ -31,6 +31,7 @@ import Vue from 'vue'
 import RunnerTable from '@/components/RunnerTable'
 
 var userId = 1;
+var startBudget = 500;
 
 function GetRunnersValue(runners){
     var value = 0;
@@ -105,14 +106,11 @@ export default {
             });
         }
     },
-    fetch({ store, params }) {
-        return axios.get('http://185.95.31.64:4567/users/'+ userId +'/team')
-        .then((res) => {
-            //store.commit('init', GetRunnersValue(res.data))//???
-
-            res.data.forEach(function(item, index){
-                //budget += item.price;
-            });
+    async fetch({ store, params }) {
+        let { data } = axios.get('http://185.95.31.64:4567/runners')
+        .then((data) => {
+            console.log('hello');
+            store.commit('init', startBudget, data.data)    
         })
     }
 }

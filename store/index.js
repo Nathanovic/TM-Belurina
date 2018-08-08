@@ -3,13 +3,20 @@ import Vuex from 'vuex'
 const createStore = () => {
     return new Vuex.Store({
         state: {
-            budget: -1
+            budget: 0,
+            runners: [],
+            teamRunners: []
         },
         mutations: {
-            init(state, startValue){
+            init(state, startValue, teamRunners){
                 state.budget = startValue;
+                
+                teamRunners.foreach(function(item, index){
+                    state.budget -= item.price;
+                    teamRunners.add(item);
+                });
             },
-            increment (state, newValue){
+            increment (state, newValue){ 
                 state.budget += newValue;
             }
         }
