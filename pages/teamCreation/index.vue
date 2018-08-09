@@ -8,6 +8,7 @@ Functionalities:
 -->
 <template>
     <div id="container">  
+        <h1>{{$store.state.someText}}</h1>
         <div class="runners">
             <li v-for="(runner, index) in runners" :key="index">
                 <p>{{runner.firstName}} {{runner.lastName}}: </p><b>{{runner.price}}</b> 
@@ -17,7 +18,7 @@ Functionalities:
         <div class="runners">
             <h2>Budget: {{ $store.state.budget }}</h2>   
             <RunnerTable
-                :runners = $store.state.teamRunners
+                :runners = teamRunners
                 :canEdit = true
                 :removeRunnerFunc = removeRunner
             />
@@ -42,6 +43,11 @@ function GetRunnersValue(runners){
 }
 
 export default {
+    computed: {
+        teamRunners(){
+            return this.$store.getters.teamRunners;
+        }
+    },
     components: {
         RunnerTable
     },
@@ -62,23 +68,15 @@ export default {
         return { runners: res.data }
       })
     },
-    data () {
-        return {
-            teamRunners: [],
-            budget: 1000
-        }
-    },
     methods: {
         addRunner(runnerId){//array id + 1
             var id = JSON.stringify(runnerId);
             var runner = this.runners[runnerId - 1];
 
-            this.budget += runner.price;
-            this.teamRunners.push(runner);
             runner.bought = true;
 
             axios.put('http://185.95.31.64:4567/users/'+ userId +'/team/' + id);
-            this.$store.teamRunners.add(runner);
+            this.$store.commit('addRunner', runner);
         },
         removeRunner(runnerId){//database ID
             var id = JSON.stringify(runnerId);
@@ -86,16 +84,23 @@ export default {
             this.runners.forEach(function(item, index){
                 if(JSON.stringify(item.runnerId) == id){
                     runner = item;
+                    return;
                 }
-            });
-            var teamRID = this.teamRunners.indexOf(runner);            
-            
-            this.budget -= runner.price;
-            this.teamRunners.splice(teamRID, 1);
+            });        
+
+            var teamRID = 0;
+            this.teamRunners.forEach(function(item, index){
+                if(JSON.stringify(item.runnerId) == id){
+                    teamRID = index;
+                    return;
+                }
+            }); 
+               
             runner.bought = false;
 
             axios.delete('http://185.95.31.64:4567/users/'+ userId +'/team/' + id);
-            this.$store.teamRunners.remove(runner);
+            console.log(runner.runnerId + '/' + teamRID);
+            this.$store.commit('removeRunner', teamRID);
         },
         getRunner(id){//id = (stringified) database ID
             this.runners.forEach(function(item, index){
@@ -106,12 +111,10 @@ export default {
             });
         }
     },
-    fetch({ store, params }) {
-        let { runners } = axios.get('http://185.95.31.64:4567/' + userId +'/team')
-        .then((runners) => {
-            console.log('hello runners: ' + runners.length);
-            store.commit('init', startBudget, runners.data)    
-        })
+    created() {
+        this.$store.commit('initUserId', userId);
+        this.$store.commit('initBudget', startBudget);
+        this.$store.dispatch('initRunners')
     }
 }
 </script>
@@ -125,6 +128,7 @@ export default {
 }
 
 .runners{
+    width: 300px;
     margin: 1rem;
     padding: 1rem 1rem;
     border: 1px solid rgb(177, 177, 177);
