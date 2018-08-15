@@ -1,5 +1,6 @@
 package persistence.db.test.team;
 
+import black.door.hate.HalResource;
 import persistence.db.test.team.generated.GeneratedTeam;
 
 /**
@@ -9,4 +10,6 @@ import persistence.db.test.team.generated.GeneratedTeam;
  * 
  * @author company
  */
-public interface Team extends GeneratedTeam {}
+public interface Team extends GeneratedTeam, HalResource {
+    public static final String BASE_PATH = "/teams";
+}

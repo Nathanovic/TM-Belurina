@@ -1,5 +1,6 @@
 package persistence.db.test.runner;
 
+import black.door.hate.HalResource;
 import persistence.db.test.runner.generated.GeneratedRunner;
 
 /**
@@ -9,4 +10,6 @@ import persistence.db.test.runner.generated.GeneratedRunner;
  * 
  * @author company
  */
-public interface Runner extends GeneratedRunner {}
+public interface Runner extends GeneratedRunner, HalResource {
+    String BASE_PATH = "/runners";
+}

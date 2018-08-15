@@ -1,10 +1,13 @@
 package restservice;
 
-import org.eclipse.jetty.http.HttpStatus;
+import black.door.hate.HalRepresentation;
 import persistence.TestApplication;
 import persistence.TestApplicationBuilder;
+import persistence.db.test.runner.Runner;
 import persistence.db.test.runner.RunnerManager;
+import persistence.db.test.team.Team;
 import persistence.db.test.team.TeamManager;
+import persistence.db.test.tour.Tour;
 import persistence.db.test.tour.TourManager;
 import persistence.db.test.user.UserManager;
 import persistence.db.test.userteam.UserTeamManager;
@@ -12,12 +15,12 @@ import restservice.controller.RunnerController;
 import restservice.controller.TeamController;
 import restservice.controller.TourController;
 import restservice.controller.UserController;
-import restservice.exception.BadRequestException;
 import restservice.exception.ExceptionController;
+import restservice.util.ResponseUtil;
 
-import static spark.Spark.before;
-import static spark.Spark.exception;
-import static spark.Spark.options;
+import java.net.URI;
+
+import static spark.Spark.*;
 
 public class Main {
 
@@ -51,10 +54,16 @@ public class Main {
         });
         before(((request, response) -> response.header("Access-Control-Allow-Origin", "*")));
 
+        get("/", (request, response) -> ResponseUtil.render(HalRepresentation.builder()
+                .addLink("self", URI.create(""))
+                .addLink("tours", URI.create(Tour.BASE_PATH))
+                .addLink("teams", URI.create(Team.BASE_PATH))
+                .addLink("runners", URI.create(Runner.BASE_PATH)).build(), request));
+
         ExceptionController exceptionController = new ExceptionController();
-        TourController tourController = new TourController(tourManager,teamManager, "/tours");
-        TeamController teamController = new TeamController(teamManager, runnerManager, "/teams");
-        RunnerController runnerController = new RunnerController(runnerManager, "/runners");
+        TourController tourController = new TourController(tourManager);
+        TeamController teamController = new TeamController(teamManager);
+        RunnerController runnerController = new RunnerController(runnerManager);
         UserController userController = new UserController(userManager, userTeamManager, runnerManager, "/users");
     }
 

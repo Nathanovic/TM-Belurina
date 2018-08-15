@@ -1,5 +1,6 @@
 package persistence.db.test.tour;
 
+import black.door.hate.HalResource;
 import persistence.db.test.tour.generated.GeneratedTour;
 
 /**
@@ -9,4 +10,6 @@ import persistence.db.test.tour.generated.GeneratedTour;
  * 
  * @author company
  */
-public interface Tour extends GeneratedTour {}
+public interface Tour extends GeneratedTour, HalResource {
+    String BASE_PATH = "/tours";
+}
