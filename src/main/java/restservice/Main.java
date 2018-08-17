@@ -11,6 +11,7 @@ import persistence.db.test.tour.Tour;
 import persistence.db.test.tour.TourManager;
 import persistence.db.test.user.UserManager;
 import persistence.db.test.userteam.UserTeamManager;
+import restservice.authentication.SimpleAuthController;
 import restservice.controller.RunnerController;
 import restservice.controller.TeamController;
 import restservice.controller.TourController;
@@ -60,11 +61,18 @@ public class Main {
                 .addLink("teams", URI.create(Team.BASE_PATH))
                 .addLink("runners", URI.create(Runner.BASE_PATH)).build(), request));
 
+        get("/test", (request, response) -> {
+            System.out.println(request.body());
+            System.out.println(request);
+            return "";
+        });
+
         ExceptionController exceptionController = new ExceptionController();
         TourController tourController = new TourController(tourManager);
         TeamController teamController = new TeamController(teamManager);
         RunnerController runnerController = new RunnerController(runnerManager);
         UserController userController = new UserController(userManager, userTeamManager, runnerManager, "/users");
+        new SimpleAuthController(userManager);
     }
 
 }
