@@ -10,9 +10,6 @@ import persistence.db.test.user.UserImpl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static com.speedment.common.injector.State.RESOLVED;
-import static com.speedment.runtime.core.internal.util.sql.ResultSetUtil.*;
-
 /**
  * The generated Sql Adapter for a {@link persistence.db.test.user.User} entity.
  * <p>
@@ -32,10 +29,10 @@ public abstract class GeneratedUserSqlAdapter implements SqlAdapter<User> {
     
     protected User apply(ResultSet resultSet, int offset) throws SQLException {
         return createEntity()
-            .setUserId(   resultSet.getInt(1 + offset))
+            .setUserId(   resultSet.getString(1 + offset))
             .setName(     resultSet.getString(2 + offset))
             .setPassword( resultSet.getString(3 + offset))
-            .setScore(    getDouble(resultSet, 4 + offset))
+            .setEmail(    resultSet.getString(4 + offset))
             ;
     }
     

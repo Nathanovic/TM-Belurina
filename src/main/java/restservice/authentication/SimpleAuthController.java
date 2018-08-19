@@ -1,21 +1,25 @@
 package restservice.authentication;
 
+import black.door.hate.HalRepresentation;
+import com.auth0.jwt.exceptions.JWTCreationException;
+import org.eclipse.jetty.http.HttpStatus;
 import persistence.db.test.user.User;
+import persistence.db.test.user.UserImpl;
 import persistence.db.test.user.UserManager;
+import restservice.util.EmptyHalResource;
+import restservice.util.JWTUtil;
+import restservice.util.ResponseUtil;
 import restservice.util.json.JsonUtil;
 
 import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.util.Map;
 
-import static spark.Spark.path;
-import static spark.Spark.post;
+import static restservice.util.JWTUtil.generateUUID;
+import static spark.Spark.*;
 
 public class SimpleAuthController {
-    private String secret;
 
     private String get_SHA_512_SecurePassword(String passwordToHash, String salt){
         String generatedPassword = null;
@@ -35,46 +39,54 @@ public class SimpleAuthController {
         return generatedPassword;
     }
 
-    public static String generateUUID(){
-        SecureRandom random = new SecureRandom();
-        return new BigInteger(130, random).toString(32);
-    }
-
     public SimpleAuthController(UserManager userManager){
-        secret = generateUUID();
 
         path("/auth", () -> {
             post("/login", (request, response) -> {
                 Map map = JsonUtil.parse(request.body(), Map.class);
-                User user = userManager.stream().filter(User.NAME.equal(map.get("username").toString())).findFirst().orElse(null);
+                User user = userManager.stream().filter(User.NAME.equalIgnoreCase(map.get("username").toString())).findFirst().orElse(null);
                 if(user != null) {
-                    /*if(get_SHA_512_SecurePassword(map.get("password").toString(), user.getUserId()).equals(user.getPassword()) {
-
-                    }*/
-                    System.out.println(map.get("username"));
-                    System.out.println(map.get("password"));
+                    if(get_SHA_512_SecurePassword(map.get("password").toString(), user.getUserId()).equals(user.getPassword())) {
+                        try {
+                            return ResponseUtil.render(HalRepresentation.builder().addProperty("token", JWTUtil.createJWT(request, user.getUserId())).build(), request);
+                        } catch (JWTCreationException exception){
+                            exception.printStackTrace();
+                        }
+                    }
                 }
-                return "";
+                return ResponseUtil.error(HttpStatus.UNAUTHORIZED_401,"Invalid Username or Password", request, response);
             });
             post("/register", (request, response) -> {
-
-                return "";
+                Map map = JsonUtil.parse(request.body(), Map.class);
+                String username = map.get("username").toString();
+                String email = map.get("email").toString();
+                String password = map.get("password").toString();
+                if(userManager.stream().anyMatch(User.NAME.equalIgnoreCase(username))){
+                    return ResponseUtil.conflictError("Username already in use", request, response);
+                } else if(userManager.stream().anyMatch(User.EMAIL.equalIgnoreCase(email))) {
+                    return ResponseUtil.conflictError("Email already in use", request, response);
+                }
+                User user = new UserImpl();
+                user.setName(username);
+                user.setEmail(email);
+                String uuid = "";
+                do {
+                    uuid = generateUUID();
+                } while (userManager.stream().anyMatch(User.USER_ID.equal(uuid)));
+                user.setUserId(uuid);
+                user.setPassword(get_SHA_512_SecurePassword(password, uuid));
+                user = userManager.persist(user);
+                response.status(HttpStatus.CREATED_201);
+                return ResponseUtil.render(user, request);
+            });
+            get("/user", (request, response) -> {
+                try {
+                    String userId = JWTUtil.getUserIdFromRequest(request);
+                    return ResponseUtil.render(userManager.stream().filter(User.USER_ID.equal(userId)).findFirst().orElseGet(EmptyHalResource::instantiate), request);
+                } catch (Exception exception){
+                    return ResponseUtil.error(HttpStatus.UNAUTHORIZED_401, exception.getMessage(), request, response);
+                }
             });
         });
-    }
-
-    public static void main(String[] args) {
-        String password = "mysecretpass";
-        String username = "user1";
-        String uuid = "oegqurqas3vaqbo5kmg21da7h6";
-        System.out.println(uuid.length());
-        int max = 0;
-        for (int i = 0; i < 1000000; i++) {
-            int length = SimpleAuthController.generateUUID().length();
-            if(length > max)
-                max = length;
-        }
-        System.out.println("max: " + max);
-        //System.out.println(get_SHA_512_SecurePassword(username, uuid));
     }
 }

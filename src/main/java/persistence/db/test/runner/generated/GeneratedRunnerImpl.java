@@ -6,11 +6,7 @@ import com.speedment.runtime.core.util.OptionalUtil;
 import persistence.db.test.runner.Runner;
 import persistence.db.test.team.Team;
 
-import java.util.Objects;
-import java.util.Optional;
-import java.util.OptionalDouble;
-import java.util.OptionalInt;
-import java.util.StringJoiner;
+import java.util.*;
 
 /**
  * The generated base implementation of the {@link
@@ -33,6 +29,7 @@ public abstract class GeneratedRunnerImpl implements Runner {
     private Double weight;
     private Double price;
     private Integer teamId;
+    private String runnerCategory;
     
     protected GeneratedRunnerImpl() {}
     
@@ -79,6 +76,11 @@ public abstract class GeneratedRunnerImpl implements Runner {
     @Override
     public OptionalInt getTeamId() {
         return OptionalUtil.ofNullable(teamId);
+    }
+    
+    @Override
+    public Optional<String> getRunnerCategory() {
+        return Optional.ofNullable(runnerCategory);
     }
     
     @Override
@@ -136,6 +138,12 @@ public abstract class GeneratedRunnerImpl implements Runner {
     }
     
     @Override
+    public Runner setRunnerCategory(String runnerCategory) {
+        this.runnerCategory = runnerCategory;
+        return this;
+    }
+    
+    @Override
     public Optional<Team> findTeamId(Manager<Team> foreignManager) {
         if (getTeamId().isPresent()) {
             return foreignManager.stream().filter(Team.TEAM_ID.equal(getTeamId().getAsInt())).findAny();
@@ -147,15 +155,16 @@ public abstract class GeneratedRunnerImpl implements Runner {
     @Override
     public String toString() {
         final StringJoiner sj = new StringJoiner(", ", "{ ", " }");
-        sj.add("runnerId = "    + Objects.toString(getRunnerId()));
-        sj.add("firstName = "   + Objects.toString(OptionalUtil.unwrap(getFirstName())));
-        sj.add("lastName = "    + Objects.toString(OptionalUtil.unwrap(getLastName())));
-        sj.add("nationality = " + Objects.toString(OptionalUtil.unwrap(getNationality())));
-        sj.add("specialty = "   + Objects.toString(OptionalUtil.unwrap(getSpecialty())));
-        sj.add("height = "      + Objects.toString(OptionalUtil.unwrap(getHeight())));
-        sj.add("weight = "      + Objects.toString(OptionalUtil.unwrap(getWeight())));
-        sj.add("price = "       + Objects.toString(OptionalUtil.unwrap(getPrice())));
-        sj.add("teamId = "      + Objects.toString(OptionalUtil.unwrap(getTeamId())));
+        sj.add("runnerId = "       + Objects.toString(getRunnerId()));
+        sj.add("firstName = "      + Objects.toString(OptionalUtil.unwrap(getFirstName())));
+        sj.add("lastName = "       + Objects.toString(OptionalUtil.unwrap(getLastName())));
+        sj.add("nationality = "    + Objects.toString(OptionalUtil.unwrap(getNationality())));
+        sj.add("specialty = "      + Objects.toString(OptionalUtil.unwrap(getSpecialty())));
+        sj.add("height = "         + Objects.toString(OptionalUtil.unwrap(getHeight())));
+        sj.add("weight = "         + Objects.toString(OptionalUtil.unwrap(getWeight())));
+        sj.add("price = "          + Objects.toString(OptionalUtil.unwrap(getPrice())));
+        sj.add("teamId = "         + Objects.toString(OptionalUtil.unwrap(getTeamId())));
+        sj.add("runnerCategory = " + Objects.toString(OptionalUtil.unwrap(getRunnerCategory())));
         return "RunnerImpl " + sj.toString();
     }
     
@@ -173,6 +182,7 @@ public abstract class GeneratedRunnerImpl implements Runner {
         if (!Objects.equals(this.getWeight(), thatRunner.getWeight())) { return false; }
         if (!Objects.equals(this.getPrice(), thatRunner.getPrice())) { return false; }
         if (!Objects.equals(this.getTeamId(), thatRunner.getTeamId())) { return false; }
+        if (!Objects.equals(this.getRunnerCategory(), thatRunner.getRunnerCategory())) { return false; }
         return true;
     }
     
@@ -188,6 +198,7 @@ public abstract class GeneratedRunnerImpl implements Runner {
         hash = 31 * hash + Objects.hashCode(OptionalUtil.unwrap(getWeight()));
         hash = 31 * hash + Objects.hashCode(OptionalUtil.unwrap(getPrice()));
         hash = 31 * hash + Objects.hashCode(OptionalUtil.unwrap(getTeamId()));
+        hash = 31 * hash + Objects.hashCode(OptionalUtil.unwrap(getRunnerCategory()));
         return hash;
     }
 }

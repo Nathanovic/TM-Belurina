@@ -130,6 +130,17 @@ public interface GeneratedRunner {
         TypeMapper.identity(),
         false
     );
+    /**
+     * This Field corresponds to the {@link Runner} field that can be obtained
+     * using the {@link Runner#getRunnerCategory()} method.
+     */
+    StringField<Runner, String> RUNNER_CATEGORY = StringField.create(
+        Identifier.RUNNER_CATEGORY,
+        o -> OptionalUtil.unwrap(o.getRunnerCategory()),
+        Runner::setRunnerCategory,
+        TypeMapper.identity(),
+        false
+    );
     
     /**
      * Returns the runnerId of this Runner. The runnerId field corresponds to
@@ -202,6 +213,14 @@ public interface GeneratedRunner {
      * @return the teamId of this Runner
      */
     OptionalInt getTeamId();
+    
+    /**
+     * Returns the runnerCategory of this Runner. The runnerCategory field
+     * corresponds to the database column test.test.Runner.RunnerCategory.
+     * 
+     * @return the runnerCategory of this Runner
+     */
+    Optional<String> getRunnerCategory();
     
     /**
      * Sets the runnerId of this Runner. The runnerId field corresponds to the
@@ -285,6 +304,15 @@ public interface GeneratedRunner {
     Runner setTeamId(Integer teamId);
     
     /**
+     * Sets the runnerCategory of this Runner. The runnerCategory field
+     * corresponds to the database column test.test.Runner.RunnerCategory.
+     * 
+     * @param runnerCategory to set of this Runner
+     * @return               this Runner instance
+     */
+    Runner setRunnerCategory(String runnerCategory);
+    
+    /**
      * Queries the specified manager for the referenced Team. If no such Team
      * exists, an {@code NullPointerException} will be thrown.
      * 
@@ -295,15 +323,16 @@ public interface GeneratedRunner {
     
     enum Identifier implements ColumnIdentifier<Runner> {
         
-        RUNNER_ID   ("RunnerId"),
-        FIRST_NAME  ("FirstName"),
-        LAST_NAME   ("LastName"),
-        NATIONALITY ("Nationality"),
-        SPECIALTY   ("Specialty"),
-        HEIGHT      ("Height"),
-        WEIGHT      ("Weight"),
-        PRICE       ("Price"),
-        TEAM_ID     ("TeamId");
+        RUNNER_ID       ("RunnerId"),
+        FIRST_NAME      ("FirstName"),
+        LAST_NAME       ("LastName"),
+        NATIONALITY     ("Nationality"),
+        SPECIALTY       ("Specialty"),
+        HEIGHT          ("Height"),
+        WEIGHT          ("Weight"),
+        PRICE           ("Price"),
+        TEAM_ID         ("TeamId"),
+        RUNNER_CATEGORY ("RunnerCategory");
         
         private final String columnId;
         private final TableIdentifier<Runner> tableIdentifier;

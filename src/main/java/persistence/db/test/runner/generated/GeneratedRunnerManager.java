@@ -33,7 +33,8 @@ public interface GeneratedRunnerManager extends Manager<Runner> {
         Runner.HEIGHT,
         Runner.WEIGHT,
         Runner.PRICE,
-        Runner.TEAM_ID
+        Runner.TEAM_ID,
+        Runner.RUNNER_CATEGORY
     ));
     
     @Override

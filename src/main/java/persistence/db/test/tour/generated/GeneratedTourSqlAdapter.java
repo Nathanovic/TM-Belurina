@@ -10,8 +10,7 @@ import persistence.db.test.tour.TourImpl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static com.speedment.common.injector.State.RESOLVED;
-import static com.speedment.runtime.core.internal.util.sql.ResultSetUtil.*;
+import static com.speedment.runtime.core.internal.util.sql.ResultSetUtil.getInt;
 
 /**
  * The generated Sql Adapter for a {@link persistence.db.test.tour.Tour} entity.
@@ -32,9 +31,10 @@ public abstract class GeneratedTourSqlAdapter implements SqlAdapter<Tour> {
     
     protected Tour apply(ResultSet resultSet, int offset) throws SQLException {
         return createEntity()
-            .setTourId( resultSet.getInt(1 + offset))
-            .setName(   resultSet.getString(2 + offset))
-            .setYear(   getInt(resultSet, 3 + offset))
+            .setTourId(            resultSet.getInt(1 + offset))
+            .setName(              resultSet.getString(2 + offset))
+            .setYear(              getInt(resultSet, 3 + offset))
+            .setEndOfRegistration( resultSet.getTimestamp(4 + offset))
             ;
     }
     

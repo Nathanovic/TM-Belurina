@@ -1,11 +1,9 @@
 package persistence.db.test.user.generated;
 
 import com.speedment.common.annotation.GeneratedCode;
-import com.speedment.runtime.core.util.OptionalUtil;
 import persistence.db.test.user.User;
 
 import java.util.Objects;
-import java.util.OptionalDouble;
 import java.util.StringJoiner;
 
 /**
@@ -20,15 +18,15 @@ import java.util.StringJoiner;
 @GeneratedCode("Speedment")
 public abstract class GeneratedUserImpl implements User {
     
-    private int userId;
+    private String userId;
     private String name;
     private String password;
-    private Double score;
+    private String email;
     
     protected GeneratedUserImpl() {}
     
     @Override
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
     
@@ -43,12 +41,12 @@ public abstract class GeneratedUserImpl implements User {
     }
     
     @Override
-    public OptionalDouble getScore() {
-        return OptionalUtil.ofNullable(score);
+    public String getEmail() {
+        return email;
     }
     
     @Override
-    public User setUserId(int userId) {
+    public User setUserId(String userId) {
         this.userId = userId;
         return this;
     }
@@ -66,8 +64,8 @@ public abstract class GeneratedUserImpl implements User {
     }
     
     @Override
-    public User setScore(Double score) {
-        this.score = score;
+    public User setEmail(String email) {
+        this.email = email;
         return this;
     }
     
@@ -77,7 +75,7 @@ public abstract class GeneratedUserImpl implements User {
         sj.add("userId = "   + Objects.toString(getUserId()));
         sj.add("name = "     + Objects.toString(getName()));
         sj.add("password = " + Objects.toString(getPassword()));
-        sj.add("score = "    + Objects.toString(OptionalUtil.unwrap(getScore())));
+        sj.add("email = "    + Objects.toString(getEmail()));
         return "UserImpl " + sj.toString();
     }
     
@@ -86,20 +84,20 @@ public abstract class GeneratedUserImpl implements User {
         if (this == that) { return true; }
         if (!(that instanceof User)) { return false; }
         final User thatUser = (User)that;
-        if (this.getUserId() != thatUser.getUserId()) { return false; }
+        if (!Objects.equals(this.getUserId(), thatUser.getUserId())) { return false; }
         if (!Objects.equals(this.getName(), thatUser.getName())) { return false; }
         if (!Objects.equals(this.getPassword(), thatUser.getPassword())) { return false; }
-        if (!Objects.equals(this.getScore(), thatUser.getScore())) { return false; }
+        if (!Objects.equals(this.getEmail(), thatUser.getEmail())) { return false; }
         return true;
     }
     
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 31 * hash + Integer.hashCode(getUserId());
+        hash = 31 * hash + Objects.hashCode(getUserId());
         hash = 31 * hash + Objects.hashCode(getName());
         hash = 31 * hash + Objects.hashCode(getPassword());
-        hash = 31 * hash + Objects.hashCode(OptionalUtil.unwrap(getScore()));
+        hash = 31 * hash + Objects.hashCode(getEmail());
         return hash;
     }
 }

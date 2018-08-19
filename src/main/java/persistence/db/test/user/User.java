@@ -1,5 +1,6 @@
 package persistence.db.test.user;
 
+import black.door.hate.HalResource;
 import persistence.db.test.user.generated.GeneratedUser;
 
 /**
@@ -9,4 +10,6 @@ import persistence.db.test.user.generated.GeneratedUser;
  * 
  * @author company
  */
-public interface User extends GeneratedUser {}
+public interface User extends GeneratedUser, HalResource {
+    String BASE_PATH = "/user";
+}

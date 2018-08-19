@@ -27,7 +27,8 @@ public interface GeneratedTourManager extends Manager<Tour> {
     List<Field<Tour>> FIELDS = unmodifiableList(asList(
         Tour.TOUR_ID,
         Tour.NAME,
-        Tour.YEAR
+        Tour.YEAR,
+        Tour.END_OF_REGISTRATION
     ));
     
     @Override

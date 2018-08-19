@@ -10,8 +10,8 @@ import persistence.db.test.runner.RunnerImpl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static com.speedment.common.injector.State.RESOLVED;
-import static com.speedment.runtime.core.internal.util.sql.ResultSetUtil.*;
+import static com.speedment.runtime.core.internal.util.sql.ResultSetUtil.getDouble;
+import static com.speedment.runtime.core.internal.util.sql.ResultSetUtil.getInt;
 
 /**
  * The generated Sql Adapter for a {@link persistence.db.test.runner.Runner}
@@ -33,15 +33,16 @@ public abstract class GeneratedRunnerSqlAdapter implements SqlAdapter<Runner> {
     
     protected Runner apply(ResultSet resultSet, int offset) throws SQLException {
         return createEntity()
-            .setRunnerId(    resultSet.getInt(1 + offset))
-            .setFirstName(   resultSet.getString(2 + offset))
-            .setLastName(    resultSet.getString(3 + offset))
-            .setNationality( resultSet.getString(4 + offset))
-            .setSpecialty(   resultSet.getString(5 + offset))
-            .setHeight(      getDouble(resultSet, 6 + offset))
-            .setWeight(      getDouble(resultSet, 7 + offset))
-            .setPrice(       getDouble(resultSet, 8 + offset))
-            .setTeamId(      getInt(resultSet, 9 + offset))
+            .setRunnerId(       resultSet.getInt(1 + offset))
+            .setFirstName(      resultSet.getString(2 + offset))
+            .setLastName(       resultSet.getString(3 + offset))
+            .setNationality(    resultSet.getString(4 + offset))
+            .setSpecialty(      resultSet.getString(5 + offset))
+            .setHeight(         getDouble(resultSet, 6 + offset))
+            .setWeight(         getDouble(resultSet, 7 + offset))
+            .setPrice(          getDouble(resultSet, 8 + offset))
+            .setTeamId(         getInt(resultSet, 9 + offset))
+            .setRunnerCategory( resultSet.getString(10 + offset))
             ;
     }
     

@@ -1,6 +1,9 @@
 package persistence.db.test.user;
 
+import black.door.hate.HalRepresentation;
 import persistence.db.test.user.generated.GeneratedUserImpl;
+
+import java.net.URI;
 
 /**
  * The default implementation of the {@link
@@ -12,4 +15,18 @@ import persistence.db.test.user.generated.GeneratedUserImpl;
  */
 public final class UserImpl 
 extends GeneratedUserImpl
-implements User {}
+implements User {
+    @Override
+    public HalRepresentation.HalRepresentationBuilder representationBuilder() {
+        return HalRepresentation.builder()
+                .addProperty("username", getName())
+                .addProperty("email", getEmail())
+                .addLink("team", URI.create(BASE_PATH + "/team"))
+                .addLink("self", this);
+    }
+
+    @Override
+    public URI location() {
+        return URI.create(BASE_PATH);
+    }
+}

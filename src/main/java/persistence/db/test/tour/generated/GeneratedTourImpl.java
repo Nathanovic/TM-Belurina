@@ -4,7 +4,9 @@ import com.speedment.common.annotation.GeneratedCode;
 import com.speedment.runtime.core.util.OptionalUtil;
 import persistence.db.test.tour.Tour;
 
+import java.sql.Timestamp;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.StringJoiner;
 
@@ -23,6 +25,7 @@ public abstract class GeneratedTourImpl implements Tour {
     private int tourId;
     private String name;
     private Integer year;
+    private Timestamp endOfRegistration;
     
     protected GeneratedTourImpl() {}
     
@@ -39,6 +42,11 @@ public abstract class GeneratedTourImpl implements Tour {
     @Override
     public OptionalInt getYear() {
         return OptionalUtil.ofNullable(year);
+    }
+    
+    @Override
+    public Optional<Timestamp> getEndOfRegistration() {
+        return Optional.ofNullable(endOfRegistration);
     }
     
     @Override
@@ -60,11 +68,18 @@ public abstract class GeneratedTourImpl implements Tour {
     }
     
     @Override
+    public Tour setEndOfRegistration(Timestamp endOfRegistration) {
+        this.endOfRegistration = endOfRegistration;
+        return this;
+    }
+    
+    @Override
     public String toString() {
         final StringJoiner sj = new StringJoiner(", ", "{ ", " }");
-        sj.add("tourId = " + Objects.toString(getTourId()));
-        sj.add("name = "   + Objects.toString(getName()));
-        sj.add("year = "   + Objects.toString(OptionalUtil.unwrap(getYear())));
+        sj.add("tourId = "            + Objects.toString(getTourId()));
+        sj.add("name = "              + Objects.toString(getName()));
+        sj.add("year = "              + Objects.toString(OptionalUtil.unwrap(getYear())));
+        sj.add("endOfRegistration = " + Objects.toString(OptionalUtil.unwrap(getEndOfRegistration())));
         return "TourImpl " + sj.toString();
     }
     
@@ -76,6 +91,7 @@ public abstract class GeneratedTourImpl implements Tour {
         if (this.getTourId() != thatTour.getTourId()) { return false; }
         if (!Objects.equals(this.getName(), thatTour.getName())) { return false; }
         if (!Objects.equals(this.getYear(), thatTour.getYear())) { return false; }
+        if (!Objects.equals(this.getEndOfRegistration(), thatTour.getEndOfRegistration())) { return false; }
         return true;
     }
     
@@ -85,6 +101,7 @@ public abstract class GeneratedTourImpl implements Tour {
         hash = 31 * hash + Integer.hashCode(getTourId());
         hash = 31 * hash + Objects.hashCode(getName());
         hash = 31 * hash + Objects.hashCode(OptionalUtil.unwrap(getYear()));
+        hash = 31 * hash + Objects.hashCode(OptionalUtil.unwrap(getEndOfRegistration()));
         return hash;
     }
 }

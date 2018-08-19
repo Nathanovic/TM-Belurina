@@ -10,6 +10,8 @@ import com.speedment.runtime.field.StringField;
 import com.speedment.runtime.typemapper.TypeMapper;
 import persistence.db.test.tour.Tour;
 
+import java.sql.Timestamp;
+import java.util.Optional;
 import java.util.OptionalInt;
 
 /**
@@ -57,6 +59,17 @@ public interface GeneratedTour {
         TypeMapper.identity(),
         false
     );
+    /**
+     * This Field corresponds to the {@link Tour} field that can be obtained
+     * using the {@link Tour#getEndOfRegistration()} method.
+     */
+    ComparableField<Tour, Timestamp, Timestamp> END_OF_REGISTRATION = ComparableField.create(
+        Identifier.END_OF_REGISTRATION,
+        o -> OptionalUtil.unwrap(o.getEndOfRegistration()),
+        Tour::setEndOfRegistration,
+        TypeMapper.identity(),
+        false
+    );
     
     /**
      * Returns the tourId of this Tour. The tourId field corresponds to the
@@ -81,6 +94,14 @@ public interface GeneratedTour {
      * @return the year of this Tour
      */
     OptionalInt getYear();
+    
+    /**
+     * Returns the endOfRegistration of this Tour. The endOfRegistration field
+     * corresponds to the database column test.test.Tour.EndOfRegistration.
+     * 
+     * @return the endOfRegistration of this Tour
+     */
+    Optional<Timestamp> getEndOfRegistration();
     
     /**
      * Sets the tourId of this Tour. The tourId field corresponds to the
@@ -109,11 +130,21 @@ public interface GeneratedTour {
      */
     Tour setYear(Integer year);
     
+    /**
+     * Sets the endOfRegistration of this Tour. The endOfRegistration field
+     * corresponds to the database column test.test.Tour.EndOfRegistration.
+     * 
+     * @param endOfRegistration to set of this Tour
+     * @return                  this Tour instance
+     */
+    Tour setEndOfRegistration(Timestamp endOfRegistration);
+    
     enum Identifier implements ColumnIdentifier<Tour> {
         
-        TOUR_ID ("TourId"),
-        NAME    ("Name"),
-        YEAR    ("Year");
+        TOUR_ID             ("TourId"),
+        NAME                ("Name"),
+        YEAR                ("Year"),
+        END_OF_REGISTRATION ("EndOfRegistration");
         
         private final String columnId;
         private final TableIdentifier<Tour> tableIdentifier;

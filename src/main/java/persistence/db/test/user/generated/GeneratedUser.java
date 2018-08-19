@@ -3,14 +3,9 @@ package persistence.db.test.user.generated;
 import com.speedment.common.annotation.GeneratedCode;
 import com.speedment.runtime.config.identifier.ColumnIdentifier;
 import com.speedment.runtime.config.identifier.TableIdentifier;
-import com.speedment.runtime.core.util.OptionalUtil;
-import com.speedment.runtime.field.ComparableField;
-import com.speedment.runtime.field.IntField;
 import com.speedment.runtime.field.StringField;
 import com.speedment.runtime.typemapper.TypeMapper;
 import persistence.db.test.user.User;
-
-import java.util.OptionalDouble;
 
 /**
  * The generated base for the {@link persistence.db.test.user.User}-interface
@@ -28,11 +23,11 @@ public interface GeneratedUser {
      * This Field corresponds to the {@link User} field that can be obtained
      * using the {@link User#getUserId()} method.
      */
-    IntField<User, Integer> USER_ID = IntField.create(
+    StringField<User, String> USER_ID = StringField.create(
         Identifier.USER_ID,
         User::getUserId,
         User::setUserId,
-        TypeMapper.primitive(),
+        TypeMapper.identity(),
         true
     );
     /**
@@ -59,12 +54,12 @@ public interface GeneratedUser {
     );
     /**
      * This Field corresponds to the {@link User} field that can be obtained
-     * using the {@link User#getScore()} method.
+     * using the {@link User#getEmail()} method.
      */
-    ComparableField<User, Double, Double> SCORE = ComparableField.create(
-        Identifier.SCORE,
-        o -> OptionalUtil.unwrap(o.getScore()),
-        User::setScore,
+    StringField<User, String> EMAIL = StringField.create(
+        Identifier.EMAIL,
+        User::getEmail,
+        User::setEmail,
         TypeMapper.identity(),
         false
     );
@@ -75,7 +70,7 @@ public interface GeneratedUser {
      * 
      * @return the userId of this User
      */
-    int getUserId();
+    String getUserId();
     
     /**
      * Returns the name of this User. The name field corresponds to the database
@@ -94,12 +89,12 @@ public interface GeneratedUser {
     String getPassword();
     
     /**
-     * Returns the score of this User. The score field corresponds to the
-     * database column test.test.User.Score.
+     * Returns the email of this User. The email field corresponds to the
+     * database column test.test.User.Email.
      * 
-     * @return the score of this User
+     * @return the email of this User
      */
-    OptionalDouble getScore();
+    String getEmail();
     
     /**
      * Sets the userId of this User. The userId field corresponds to the
@@ -108,7 +103,7 @@ public interface GeneratedUser {
      * @param userId to set of this User
      * @return       this User instance
      */
-    User setUserId(int userId);
+    User setUserId(String userId);
     
     /**
      * Sets the name of this User. The name field corresponds to the database
@@ -129,20 +124,20 @@ public interface GeneratedUser {
     User setPassword(String password);
     
     /**
-     * Sets the score of this User. The score field corresponds to the database
-     * column test.test.User.Score.
+     * Sets the email of this User. The email field corresponds to the database
+     * column test.test.User.Email.
      * 
-     * @param score to set of this User
+     * @param email to set of this User
      * @return      this User instance
      */
-    User setScore(Double score);
+    User setEmail(String email);
     
     enum Identifier implements ColumnIdentifier<User> {
         
         USER_ID  ("UserId"),
         NAME     ("Name"),
         PASSWORD ("Password"),
-        SCORE    ("Score");
+        EMAIL    ("Email");
         
         private final String columnId;
         private final TableIdentifier<User> tableIdentifier;

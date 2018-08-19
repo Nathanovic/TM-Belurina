@@ -18,7 +18,6 @@ public class UserJsonAdapter extends TypeAdapter<User> {
     public void write(JsonWriter jsonWriter, User user) throws IOException {
         jsonWriter.beginObject();
         jsonWriter.name("userId").value(user.getUserId());
-        jsonWriter.name("score").value(user.getScore().orElse(0));
         jsonWriter.name("name").value(user.getName());
         jsonWriter.name("password").value(user.getPassword());
         jsonWriter.endObject();
@@ -36,9 +35,6 @@ public class UserJsonAdapter extends TypeAdapter<User> {
                     break;
                 case "password":
                     user.setPassword(jsonReader.nextString());
-                    break;
-                case "score":
-                    user.setScore(jsonReader.nextDouble());
                     break;
             }
         }

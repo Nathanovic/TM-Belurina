@@ -8,14 +8,16 @@ import persistence.TestApplicationBuilder;
 import persistence.TestApplicationImpl;
 import persistence.db.test.runner.RunnerManagerImpl;
 import persistence.db.test.runner.RunnerSqlAdapter;
+import persistence.db.test.runnerinusertourteam.RunnerInUserTourTeamManagerImpl;
+import persistence.db.test.runnerinusertourteam.RunnerInUserTourTeamSqlAdapter;
 import persistence.db.test.team.TeamManagerImpl;
 import persistence.db.test.team.TeamSqlAdapter;
 import persistence.db.test.tour.TourManagerImpl;
 import persistence.db.test.tour.TourSqlAdapter;
 import persistence.db.test.user.UserManagerImpl;
 import persistence.db.test.user.UserSqlAdapter;
-import persistence.db.test.userteam.UserTeamManagerImpl;
-import persistence.db.test.userteam.UserTeamSqlAdapter;
+import persistence.db.test.usertourteam.UserTourTeamManagerImpl;
+import persistence.db.test.usertourteam.UserTourTeamSqlAdapter;
 
 /**
  * A generated base {@link
@@ -33,15 +35,17 @@ public abstract class GeneratedTestApplicationBuilder extends AbstractApplicatio
     protected GeneratedTestApplicationBuilder() {
         super(TestApplicationImpl.class, GeneratedTestMetadata.class);
         withManager(RunnerManagerImpl.class);
+        withManager(RunnerInUserTourTeamManagerImpl.class);
         withManager(TeamManagerImpl.class);
         withManager(TourManagerImpl.class);
         withManager(UserManagerImpl.class);
-        withManager(UserTeamManagerImpl.class);
+        withManager(UserTourTeamManagerImpl.class);
         withComponent(RunnerSqlAdapter.class);
+        withComponent(RunnerInUserTourTeamSqlAdapter.class);
         withComponent(TeamSqlAdapter.class);
         withComponent(TourSqlAdapter.class);
         withComponent(UserSqlAdapter.class);
-        withComponent(UserTeamSqlAdapter.class);
+        withComponent(UserTourTeamSqlAdapter.class);
     }
     
     @Override

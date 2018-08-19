@@ -28,7 +28,7 @@ public interface GeneratedUserManager extends Manager<User> {
         User.USER_ID,
         User.NAME,
         User.PASSWORD,
-        User.SCORE
+        User.EMAIL
     ));
     
     @Override

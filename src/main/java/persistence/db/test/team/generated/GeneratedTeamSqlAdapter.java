@@ -10,8 +10,6 @@ import persistence.db.test.team.TeamImpl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static com.speedment.common.injector.State.RESOLVED;
-
 /**
  * The generated Sql Adapter for a {@link persistence.db.test.team.Team} entity.
  * <p>
