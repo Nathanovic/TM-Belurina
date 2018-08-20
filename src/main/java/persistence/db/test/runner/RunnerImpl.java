@@ -3,6 +3,7 @@ package persistence.db.test.runner;
 import black.door.hate.HalRepresentation;
 import persistence.db.test.runner.generated.GeneratedRunnerImpl;
 import persistence.db.test.team.Team;
+import persistence.db.test.usertourteam.UserTourTeam;
 
 import java.net.URI;
 
@@ -28,6 +29,7 @@ implements Runner {
                 .addProperty("weight", getWeight().orElse(-1))
                 .addProperty("price", getPrice().orElse(-1))
                 .addLink("team", URI.create(Team.BASE_PATH + "/" + getTeamId().getAsInt()))
+                .addLink("inUserTeam", URI.create(UserTourTeam.BASE_PATH + "/" + getRunnerId()))
                 .addLink("self", this);
     }
 

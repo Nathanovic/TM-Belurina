@@ -1,0 +1,1614 @@
+{
+  "config" : {
+    "speedmentVersion" : "Speedment:3.1.4",
+    "nameProtected" : false,
+    "expanded" : true,
+    "appId" : "ef83dfd5-68c3-4470-b81e-86c25b003389",
+    "companyName" : "company",
+    "name" : "test",
+    "packageLocation" : "src/main/java/",
+    "id" : "test",
+    "packageName" : "persistence",
+    "dbmses" : [
+      {
+        "nameProtected" : true,
+        "expanded" : true,
+        "port" : 3306,
+        "schemas" : [
+          {
+            "nameProtected" : true,
+            "tables" : [
+              {
+                "nameProtected" : true,
+                "foreignKeys" : [
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "TourId",
+                        "foreignColumnName" : "TourId",
+                        "id" : "TourId",
+                        "foreignTableName" : "Tour",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "Pool_Tour_TourId_fk",
+                    "id" : "Pool_Tour_TourId_fk",
+                    "enabled" : true
+                  }
+                ],
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : true,
+                    "name" : "PoolId",
+                    "id" : "PoolId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "PoolId",
+                        "id" : "PoolId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "PRIMARY",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "Pool_Tour_TourId_fk",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "TourId",
+                        "id" : "TourId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "Pool_Tour_TourId_fk",
+                    "enabled" : true
+                  }
+                ],
+                "isView" : false,
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "autoIncrement" : true,
+                    "name" : "PoolId",
+                    "id" : "PoolId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "Name",
+                    "id" : "Name",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "TourId",
+                    "id" : "TourId",
+                    "ordinalPosition" : 3,
+                    "enabled" : true
+                  }
+                ],
+                "name" : "Pool",
+                "id" : "Pool",
+                "enabled" : false
+              },
+              {
+                "nameProtected" : true,
+                "foreignKeys" : [
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "RunnerId",
+                        "foreignColumnName" : "RunnerId",
+                        "id" : "RunnerId",
+                        "foreignTableName" : "Runner",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "Result_Runner_RunnerId_fk",
+                    "id" : "Result_Runner_RunnerId_fk",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "StageId",
+                        "foreignColumnName" : "StageId",
+                        "id" : "StageId",
+                        "foreignTableName" : "Stage",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "Result_Stage_StageId_fk",
+                    "id" : "Result_Stage_StageId_fk",
+                    "enabled" : true
+                  }
+                ],
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : true,
+                    "name" : "ResultId",
+                    "id" : "ResultId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "ResultId",
+                        "id" : "ResultId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "PRIMARY",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "Result_ResultId_uindex",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "ResultId",
+                        "id" : "ResultId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "Result_ResultId_uindex",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "Result_Runner_RunnerId_fk",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "RunnerId",
+                        "id" : "RunnerId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "Result_Runner_RunnerId_fk",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "Result_Stage_StageId_fk",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "StageId",
+                        "id" : "StageId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "Result_Stage_StageId_fk",
+                    "enabled" : true
+                  }
+                ],
+                "isView" : false,
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "autoIncrement" : true,
+                    "name" : "ResultId",
+                    "id" : "ResultId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "StageId",
+                    "id" : "StageId",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "RunnerId",
+                    "id" : "RunnerId",
+                    "ordinalPosition" : 3,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "Place",
+                    "id" : "Place",
+                    "ordinalPosition" : 4,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Double",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "Reward",
+                    "id" : "Reward",
+                    "ordinalPosition" : 5,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "Time",
+                    "id" : "Time",
+                    "ordinalPosition" : 6,
+                    "enabled" : true
+                  }
+                ],
+                "name" : "Result",
+                "id" : "Result",
+                "enabled" : false
+              },
+              {
+                "nameProtected" : true,
+                "foreignKeys" : [
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "TeamId",
+                        "foreignColumnName" : "TeamId",
+                        "id" : "TeamId",
+                        "foreignTableName" : "Team",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "Runner_ibfk_1",
+                    "id" : "Runner_ibfk_1",
+                    "enabled" : true
+                  }
+                ],
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : true,
+                    "name" : "RunnerId",
+                    "id" : "RunnerId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "RunnerId",
+                        "id" : "RunnerId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "PRIMARY",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "Runner_RunnerCategories_CategoryName_fk",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "RunnerCategory",
+                        "id" : "RunnerCategory",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "Runner_RunnerCategories_CategoryName_fk",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "TeamId",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "TeamId",
+                        "id" : "TeamId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "TeamId",
+                    "enabled" : true
+                  }
+                ],
+                "isView" : false,
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "autoIncrement" : true,
+                    "name" : "RunnerId",
+                    "id" : "RunnerId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "FirstName",
+                    "id" : "FirstName",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "LastName",
+                    "id" : "LastName",
+                    "ordinalPosition" : 3,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "Nationality",
+                    "id" : "Nationality",
+                    "ordinalPosition" : 4,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "Specialty",
+                    "id" : "Specialty",
+                    "ordinalPosition" : 5,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Double",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "Height",
+                    "id" : "Height",
+                    "ordinalPosition" : 6,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Double",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "Weight",
+                    "id" : "Weight",
+                    "ordinalPosition" : 7,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Double",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "Price",
+                    "id" : "Price",
+                    "ordinalPosition" : 8,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "TeamId",
+                    "id" : "TeamId",
+                    "ordinalPosition" : 9,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "RunnerCategory",
+                    "id" : "RunnerCategory",
+                    "ordinalPosition" : 10,
+                    "enabled" : true
+                  }
+                ],
+                "name" : "Runner",
+                "id" : "Runner",
+                "enabled" : true
+              },
+              {
+                "nameProtected" : true,
+                "foreignKeys" : [
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "RunnerId",
+                        "foreignColumnName" : "RunnerId",
+                        "id" : "RunnerId",
+                        "foreignTableName" : "Runner",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "RunnerInUserTourTeam_Runner_RunnerId_fk",
+                    "id" : "RunnerInUserTourTeam_Runner_RunnerId_fk",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "UserTourTeamId",
+                        "foreignColumnName" : "UserTourTeamId",
+                        "id" : "UserTourTeamId",
+                        "foreignTableName" : "UserTourTeam",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "RunnerInUserTourTeam_UserTourTeam_UserTourTeamId_fk",
+                    "id" : "RunnerInUserTourTeam_UserTourTeam_UserTourTeamId_fk",
+                    "enabled" : true
+                  }
+                ],
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : true,
+                    "name" : "RunnerId",
+                    "id" : "RunnerId",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : true,
+                    "name" : "UserTourTeamId",
+                    "id" : "UserTourTeamId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "UserTourTeamId",
+                        "id" : "UserTourTeamId",
+                        "ordinalPosition" : 1
+                      },
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "RunnerId",
+                        "id" : "RunnerId",
+                        "ordinalPosition" : 2
+                      }
+                    ],
+                    "id" : "PRIMARY",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "RunnerInUserTourTeam_Runner_RunnerId_fk",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "RunnerId",
+                        "id" : "RunnerId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "RunnerInUserTourTeam_Runner_RunnerId_fk",
+                    "enabled" : true
+                  }
+                ],
+                "isView" : false,
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "UserTourTeamId",
+                    "id" : "UserTourTeamId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "RunnerId",
+                    "id" : "RunnerId",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  }
+                ],
+                "name" : "RunnerInUserTourTeam",
+                "id" : "RunnerInUserTourTeam",
+                "enabled" : true
+              },
+              {
+                "nameProtected" : true,
+                "foreignKeys" : [
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "StageType",
+                        "foreignColumnName" : "Name",
+                        "id" : "StageType",
+                        "foreignTableName" : "StageType",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "Stage_StageType_Name_fk",
+                    "id" : "Stage_StageType_Name_fk",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "TourId",
+                        "foreignColumnName" : "TourId",
+                        "id" : "TourId",
+                        "foreignTableName" : "Tour",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "Stage_Tour_TourId_fk",
+                    "id" : "Stage_Tour_TourId_fk",
+                    "enabled" : true
+                  }
+                ],
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : true,
+                    "name" : "StageId",
+                    "id" : "StageId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "StageId",
+                        "id" : "StageId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "PRIMARY",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "Stage_StageId_uindex",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "StageId",
+                        "id" : "StageId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "Stage_StageId_uindex",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "Stage_StageType_Name_fk",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "StageType",
+                        "id" : "StageType",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "Stage_StageType_Name_fk",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "Stage_Tour_TourId_fk",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "TourId",
+                        "id" : "TourId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "Stage_Tour_TourId_fk",
+                    "enabled" : true
+                  }
+                ],
+                "isView" : false,
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "autoIncrement" : true,
+                    "name" : "StageId",
+                    "id" : "StageId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "TourId",
+                    "id" : "TourId",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "Name",
+                    "id" : "Name",
+                    "ordinalPosition" : 3,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Double",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "Length",
+                    "id" : "Length",
+                    "ordinalPosition" : 4,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "StageType",
+                    "id" : "StageType",
+                    "ordinalPosition" : 5,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.sql.Date",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "Date",
+                    "id" : "Date",
+                    "ordinalPosition" : 6,
+                    "enabled" : true
+                  }
+                ],
+                "name" : "Stage",
+                "id" : "Stage",
+                "enabled" : false
+              },
+              {
+                "nameProtected" : true,
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : true,
+                    "name" : "Name",
+                    "id" : "Name",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "Name",
+                        "id" : "Name",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "PRIMARY",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "StageType_Name_uindex",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "Name",
+                        "id" : "Name",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "StageType_Name_uindex",
+                    "enabled" : true
+                  }
+                ],
+                "isView" : false,
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "Name",
+                    "id" : "Name",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  }
+                ],
+                "name" : "StageType",
+                "id" : "StageType",
+                "enabled" : false
+              },
+              {
+                "nameProtected" : true,
+                "foreignKeys" : [
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "TourId",
+                        "foreignColumnName" : "TourId",
+                        "id" : "TourId",
+                        "foreignTableName" : "Tour",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "Team_ibfk_1",
+                    "id" : "Team_ibfk_1",
+                    "enabled" : true
+                  }
+                ],
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : true,
+                    "name" : "TeamId",
+                    "id" : "TeamId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "TeamId",
+                        "id" : "TeamId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "PRIMARY",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "TourId",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "TourId",
+                        "id" : "TourId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "TourId",
+                    "enabled" : true
+                  }
+                ],
+                "isView" : false,
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "autoIncrement" : true,
+                    "name" : "TeamId",
+                    "id" : "TeamId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "Name",
+                    "id" : "Name",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "TourId",
+                    "id" : "TourId",
+                    "ordinalPosition" : 3,
+                    "enabled" : true
+                  }
+                ],
+                "name" : "Team",
+                "id" : "Team",
+                "enabled" : true
+              },
+              {
+                "nameProtected" : true,
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : true,
+                    "name" : "TourId",
+                    "id" : "TourId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "TourId",
+                        "id" : "TourId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "PRIMARY",
+                    "enabled" : true
+                  }
+                ],
+                "isView" : false,
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "autoIncrement" : true,
+                    "name" : "TourId",
+                    "id" : "TourId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "Name",
+                    "id" : "Name",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "Year",
+                    "id" : "Year",
+                    "ordinalPosition" : 3,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "EndOfRegistration",
+                    "id" : "EndOfRegistration",
+                    "ordinalPosition" : 4,
+                    "enabled" : true
+                  }
+                ],
+                "name" : "Tour",
+                "id" : "Tour",
+                "enabled" : true
+              },
+              {
+                "nameProtected" : true,
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : true,
+                    "name" : "UserId",
+                    "id" : "UserId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "UserId",
+                        "id" : "UserId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "PRIMARY",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "User_UserId_uindex",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "UserId",
+                        "id" : "UserId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "User_UserId_uindex",
+                    "enabled" : true
+                  }
+                ],
+                "isView" : false,
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "UserId",
+                    "id" : "UserId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "Name",
+                    "id" : "Name",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "Password",
+                    "id" : "Password",
+                    "ordinalPosition" : 3,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "Email",
+                    "id" : "Email",
+                    "ordinalPosition" : 4,
+                    "enabled" : true
+                  }
+                ],
+                "name" : "User",
+                "id" : "User",
+                "enabled" : true
+              },
+              {
+                "nameProtected" : true,
+                "foreignKeys" : [
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "PoolId",
+                        "foreignColumnName" : "PoolId",
+                        "id" : "PoolId",
+                        "foreignTableName" : "Pool",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "UserInPool_Pool_PoolId_fk",
+                    "id" : "UserInPool_Pool_PoolId_fk",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "UserId",
+                        "foreignColumnName" : "UserId",
+                        "id" : "UserId",
+                        "foreignTableName" : "User",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "UserInPool_User_UserId_fk",
+                    "id" : "UserInPool_User_UserId_fk",
+                    "enabled" : true
+                  }
+                ],
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : true,
+                    "name" : "PoolId",
+                    "id" : "PoolId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : true,
+                    "name" : "UserId",
+                    "id" : "UserId",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "PoolId",
+                        "id" : "PoolId",
+                        "ordinalPosition" : 1
+                      },
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "UserId",
+                        "id" : "UserId",
+                        "ordinalPosition" : 2
+                      }
+                    ],
+                    "id" : "PRIMARY",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "UserInPool_User_UserId_fk",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "UserId",
+                        "id" : "UserId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "UserInPool_User_UserId_fk",
+                    "enabled" : true
+                  }
+                ],
+                "isView" : false,
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "PoolId",
+                    "id" : "PoolId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "UserId",
+                    "id" : "UserId",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Double",
+                    "expanded" : true,
+                    "nullable" : true,
+                    "name" : "Score",
+                    "id" : "Score",
+                    "ordinalPosition" : 3,
+                    "enabled" : true
+                  }
+                ],
+                "name" : "UserInPool",
+                "id" : "UserInPool",
+                "enabled" : false
+              },
+              {
+                "nameProtected" : true,
+                "foreignKeys" : [
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "RunnerId",
+                        "foreignColumnName" : "RunnerId",
+                        "id" : "RunnerId",
+                        "foreignTableName" : "Runner",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "UserStageTeam_Runner_RunnerId_fk",
+                    "id" : "UserStageTeam_Runner_RunnerId_fk",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "StageId",
+                        "foreignColumnName" : "StageId",
+                        "id" : "StageId",
+                        "foreignTableName" : "Stage",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "UserStageTeam_Stage_StageId_fk",
+                    "id" : "UserStageTeam_Stage_StageId_fk",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "UserId",
+                        "foreignColumnName" : "UserId",
+                        "id" : "UserId",
+                        "foreignTableName" : "User",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "UserStageTeam_User_UserId_fk",
+                    "id" : "UserStageTeam_User_UserId_fk",
+                    "enabled" : true
+                  }
+                ],
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : true,
+                    "name" : "RunnerId",
+                    "id" : "RunnerId",
+                    "ordinalPosition" : 3,
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : true,
+                    "name" : "StageId",
+                    "id" : "StageId",
+                    "ordinalPosition" : 2
+                  },
+                  {
+                    "expanded" : true,
+                    "name" : "UserId",
+                    "id" : "UserId",
+                    "ordinalPosition" : 1
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "UserId",
+                        "id" : "UserId",
+                        "ordinalPosition" : 1
+                      },
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "RunnerId",
+                        "id" : "RunnerId",
+                        "ordinalPosition" : 3
+                      },
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "StageId",
+                        "id" : "StageId",
+                        "ordinalPosition" : 2
+                      }
+                    ],
+                    "id" : "PRIMARY",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "UserStageTeam_Runner_RunnerId_fk",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "RunnerId",
+                        "id" : "RunnerId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "UserStageTeam_Runner_RunnerId_fk",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "UserStageTeam_Stage_StageId_fk",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "StageId",
+                        "id" : "StageId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "UserStageTeam_Stage_StageId_fk",
+                    "enabled" : true
+                  }
+                ],
+                "isView" : false,
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "UserId",
+                    "id" : "UserId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "StageId",
+                    "id" : "StageId",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "RunnerId",
+                    "id" : "RunnerId",
+                    "ordinalPosition" : 3,
+                    "enabled" : true
+                  }
+                ],
+                "name" : "UserStageTeam",
+                "id" : "UserStageTeam",
+                "enabled" : false
+              },
+              {
+                "nameProtected" : true,
+                "foreignKeys" : [
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "TourId",
+                        "foreignColumnName" : "TourId",
+                        "id" : "TourId",
+                        "foreignTableName" : "Tour",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "UserTourTeam_Tour_TourId_fk",
+                    "id" : "UserTourTeam_Tour_TourId_fk",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "foreignKeyColumns" : [
+                      {
+                        "foreignDatabaseName" : "test",
+                        "foreignSchemaName" : "test",
+                        "expanded" : true,
+                        "name" : "UserId",
+                        "foreignColumnName" : "UserId",
+                        "id" : "UserId",
+                        "foreignTableName" : "User",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "name" : "UserTourTeam_User_UserId_fk",
+                    "id" : "UserTourTeam_User_UserId_fk",
+                    "enabled" : true
+                  }
+                ],
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : true,
+                    "name" : "UserTourTeamId",
+                    "id" : "UserTourTeamId",
+                    "ordinalPosition" : 1
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "UserTourTeamId",
+                        "id" : "UserTourTeamId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "PRIMARY",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "UserTourTeam_UserTourTeamId_uindex",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "UserTourTeamId",
+                        "id" : "UserTourTeamId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "UserTourTeam_UserTourTeamId_uindex",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "UserTourTeam_Tour_TourId_fk",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "TourId",
+                        "id" : "TourId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "UserTourTeam_Tour_TourId_fk",
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "UserTourTeam_User_UserId_fk",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : true,
+                        "name" : "UserId",
+                        "id" : "UserId",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "id" : "UserTourTeam_User_UserId_fk"
+                  }
+                ],
+                "isView" : false,
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "autoIncrement" : true,
+                    "name" : "UserTourTeamId",
+                    "id" : "UserTourTeamId",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "UserId",
+                    "id" : "UserId",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "TourId",
+                    "id" : "TourId",
+                    "ordinalPosition" : 3,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Double",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : true,
+                    "nullable" : false,
+                    "name" : "BudgetLeft",
+                    "id" : "BudgetLeft",
+                    "ordinalPosition" : 4,
+                    "enabled" : true
+                  }
+                ],
+                "name" : "UserTourTeam",
+                "id" : "UserTourTeam",
+                "enabled" : true
+              }
+            ],
+            "expanded" : true,
+            "name" : "test",
+            "id" : "test",
+            "enabled" : true
+          }
+        ],
+        "typeName" : "MySQL",
+        "ipAddress" : "185.95.31.64",
+        "name" : "test",
+        "alias" : "db",
+        "id" : "test",
+        "enabled" : true,
+        "username" : "test"
+      }
+    ],
+    "enabled" : true
+  }
+}

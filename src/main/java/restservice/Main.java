@@ -74,7 +74,6 @@ public class Main {
         TourController tourController = new TourController(tourManager);
         TeamController teamController = new TeamController(teamManager);
         RunnerController runnerController = new RunnerController(runnerManager);
-        //UserController userController = new UserController(userManager, userTeamManager, runnerManager, "/users");
         new SimpleAuthController(userManager);
         UserController userController = new UserController(userTourTeamManager, runnerInUserTourTeamManager, runnerManager);
     }
